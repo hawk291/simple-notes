@@ -1,0 +1,28 @@
+version: '3.7'
+
+services:
+  notea-webapp:
+    image: cinwell/notea
+    restart: always
+    container_name: notea-webapp
+    ports:
+      - "8085:3000"
+    environment:
+      - STORE_ACCESS_KEY=minioadmin
+      - STORE_SECRET_KEY=minioadmin
+      - STORE_BUCKET=notea
+      - STORE_END_POINT=http://127.0.0.1:9001
+      - STORE_FORCE_PATH_STYLE=true
+      - PASSWORD=password
+      - COOKIE_SECURE=false
+      - BASE_URL="http://127.0.0.1:8085"
+
+  notea-db:
+    image: minio/minio
+    restart: always
+    container_name: notea-db
+    ports:
+      - "127.0.0.1:9001:9000"
+    volumes:
+      - /root/notea/data:/data
+    command: server /data
