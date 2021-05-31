@@ -8,8 +8,10 @@ https://hub.docker.com/r/minio/minio
 
 ## How to run
 
-1. docker-compose up -d
+0. Read docker-compose.yml
 
-2. Go to http://<your-ip>:9001 -> Create bucket "notea"
+1. ```docker-compose up -d```
 
-3. Go to http://<your-ip>:8085 -> You should be able to create notes!
+2. Go to http://your-ip:9001 -> Create bucket "notea"
+
+3. Go to http://your-ip:8085 -> You should be able to create notes!
